@@ -89,6 +89,38 @@
           "resourceName": "ecommerceapp137d6bdePostConfirmation"
         }
       ]
+    },
+    "AMPLIFY_function_ecommerceapp137d6bdePostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ecommerceapp137d6bdePostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_ecommerceapp137d6bdePostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ecommerceapp137d6bdePostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_ecommercefunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ecommercefunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_ecommercefunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ecommercefunction"
+        }
+      ]
     }
   },
   "storage": {
