@@ -7,12 +7,12 @@ import checkUser from './checkUser'
 function Main() {
   const [state, setState] = useState({products: [], loading: true})
   const [user, updateUser] = useState({})
-  let didCancel = false
+  //let didCancel = false
   
   useEffect(() => {
     getProducts()
     checkUser(updateUser)
-    return () => didCancel = true
+    // return () => didCancel = true
   }, [])
   
   async function getProducts() {
@@ -25,7 +25,7 @@ function Main() {
     const data = await body.json();
 
     console.log('data: ', data)
-    if (didCancel) return
+    //if (didCancel) return
     setState({
       products: data.data.Items, loading: false
     })

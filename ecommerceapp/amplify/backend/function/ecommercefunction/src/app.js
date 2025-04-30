@@ -26,7 +26,7 @@ const { v4: uuid } = require('uuid')
 
 /* Cognito SDK */
 const cognito = new
-AWS.CognitoIdentiyServiceProvider({
+AWS.CognitoIdentityServiceProvider({
   apiVersion: '2016-04-18'
 })
 
@@ -40,7 +40,7 @@ var userpoolId = process.env.AUTH_ECOMMERCEAPP137D6BDE_USERPOOLID;
 // DynoamoDB configuration
 const region = process.env.region
 const ddb_table_name = process.env.STORAGE_PRODUCTTABLE_NAME
-const docClient = new AWS.DynamoDB.DocumentCLient({region})
+const docClient = new AWS.DynamoDB.DocumentClient({region})
 
 
 

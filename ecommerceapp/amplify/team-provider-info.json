@@ -21,11 +21,11 @@
         "ecommerceapp137d6bdePostConfirmation": {
           "GROUP": "Admin",
           "deploymentBucketName": "amplify-ecommerceapp-dev-62d80-deployment",
-          "s3Key": "amplify-builds/ecommerceapp137d6bdePostConfirmation-6764533850394f314245-build.zip"
+          "s3Key": "amplify-builds/ecommerceapp137d6bdePostConfirmation-6566304f6f595a2f692b-build.zip"
         },
         "ecommercefunction": {
           "deploymentBucketName": "amplify-ecommerceapp-dev-62d80-deployment",
-          "s3Key": "amplify-builds/ecommercefunction-546d542b56796a47466d-build.zip"
+          "s3Key": "amplify-builds/ecommercefunction-735277672b61654a3139-build.zip"
         }
       },
       "storage": {

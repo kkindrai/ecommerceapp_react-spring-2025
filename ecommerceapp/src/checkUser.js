@@ -5,7 +5,7 @@ async function checkUser(updateUser) {
     try {
         const userData = await fetchAuthSession();
 
-        if (!userData.token) {
+        if (!userData.tokens) {
             console.log('userData: ', userData)
             updateUser({})
             return

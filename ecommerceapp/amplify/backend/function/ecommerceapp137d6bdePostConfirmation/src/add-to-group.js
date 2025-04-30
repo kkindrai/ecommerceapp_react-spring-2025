@@ -42,10 +42,12 @@ exports.handler = async (event, _context, callback) => {
     // The user is an administrator, place them in the Admin group
     try {
       await cognitoIdentityServiceProvider.send(new AdminAddUserToGroupCommand(userParams));
-      callback(null, event);
-    } catch (e) { callback(e); }
+      // callback(null, event);
+    } catch (e) { //callback(e); 
+      console.log(e)
+    }
   } else {
     // If the user is in neither group, proceed with no action
-    callback(null, event)
+    // callback(null, event)
   }
 }

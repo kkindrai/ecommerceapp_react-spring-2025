@@ -11,9 +11,9 @@ export default function Router() {
     <Routes>
         <Route path="/" element={<Nav/>}>
             <Route index element={<Home/>} />
-            <Route path='/admin' component={<Admin/>} />
-            <Route path='/profile' component={<Profile/>} />
-            <Route path="*" component={<Home/>} />
+            <Route path='/admin' element={<Admin/>} />
+            <Route path='/profile' element={<Profile/>} />
+            <Route path="*" element={<Home/>} />
         </Route>
     </Routes>
         
