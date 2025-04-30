@@ -115,7 +115,7 @@ app.get('/products', async function(req, res) {
   }
 });
 
-async function getITems() {
+async function getItems() {
   var params = { TableName: ddb_table_name }
   try {
     const data = await docClient.scan(params).promise()

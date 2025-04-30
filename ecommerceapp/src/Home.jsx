@@ -21,7 +21,7 @@ function Main() {
         path: '/products'
     });
 
-    const {body} = await request.response;
+    const { body } = await request.response;
     const data = await body.json();
 
     console.log('data: ', data)

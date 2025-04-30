@@ -25,7 +25,7 @@
         },
         "ecommercefunction": {
           "deploymentBucketName": "amplify-ecommerceapp-dev-62d80-deployment",
-          "s3Key": "amplify-builds/ecommercefunction-735277672b61654a3139-build.zip"
+          "s3Key": "amplify-builds/ecommercefunction-762b336e776d4d4d7874-build.zip"
         }
       },
       "storage": {
