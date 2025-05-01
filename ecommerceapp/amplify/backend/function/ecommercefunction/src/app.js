@@ -53,35 +53,56 @@ async function getGroupsForUser(event) {
       .cognitoAuthenticationProvider
       .split(':CognitoSignIn:')[1]
 
+  // console.log("GROUPS FOR USER, user sub", userSub)
+
   let userParams = {
     UserPoolId: userpoolId,
-    Filter: `sub = "${userSub}`,
+    Filter: `sub = "${userSub}"`,
   }
+  // console.log("GROUPS FOR USER 2, ", userParams)
 
-  let userData = await  cognito.listUsers(userParams).promise()
+
+  let userData = await cognito.listUsers(userParams).promise()
+  // console.log("GROUPS FOR USER USER DATA 3, ", userData)
+
   const user = userData.Users[0]
-  var groupParams = {
+  // console.log("GROUPS FOR USER 4, ", user)
+
+  let groupParams = {
     UserPoolId: userpoolId,
     Username: user.Username
   }
+  // console.log("GROUPS FOR USER, 5", groupParams)
   
   const groupData = await cognito.adminListGroupsForUser(groupParams).promise()
+  // console.log("GROUPS FOR USER, 6", groupData)
+
   return groupData
 }
 
 
 async function canPerformAction(event, group) {
+  // console.log("START 1: ")
   return new Promise(async (resolve, reject) => {
     if (!event.requestContext.identity.cognitoAuthenticationProvider) {
+      // console.log("GETS HERE: sub3-1")
       return reject()
     }
 
+
     const groupData = await getGroupsForUser(event)
+    // console.log("GETS HERE sub3:2", groupData)
+
     const groupsForUser = groupData.Groups.map(group => group.GroupName)
+    // console.log("GETS HERE, sub3:3 ", groupsForUser)
+
     if (groupsForUser.includes(group)) {
+      // console.log("GETS HERE, sub3:4 ")
       resolve()
     } else {
+      // console.log("GETS HERE  ERROR REJECT")
       reject('user not in group, cannot perform action.')
+
     }
   })
 }
@@ -137,20 +158,34 @@ app.get('/products/*', function(req, res) {
 
 app.post('/products', async function(req, res) {
   const { body } = req
+  // console.log("GETS HERE 1: ", body)
+
   const { event } = req.apiGateway
+  // console.log("GETS HERE 2: ", event)
+
   try {
     await canPerformAction(event, 'Admin')
-    const input = { ...body, id: uuid() } 
+    // console.log("GETS HERE 3: ")
+
+    const input = { ...body, id: uuid() }
+    // console.log("GETS HERE 4: ", input)
+    
     var params = {
       TableName: ddb_table_name,
       Item: input
     }
+    // console.log("GETS HERE 5: ", params)
+
 
     await  docClient.put(params).promise()
+    // console.log("GETS HERE 6:")
+
     res.json({ success: 'item saved to database.' })
+    // console.log("GETS HERE 7: ")
 
   } catch (err) {
     res.json({ error: err })
+    // console.log("GETS HERE ERROR CATCH")
   }
 
 });
@@ -159,6 +194,7 @@ app.post('/products', async function(req, res) {
 app.post('/products/*', function(req, res) {
   // Add your code here
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
+  // console.log("GETS HERE POST /products/*")
 });
 
 /****************************
