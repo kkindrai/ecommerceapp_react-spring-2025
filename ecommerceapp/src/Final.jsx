@@ -1,12 +1,31 @@
 import { useState, useEffect } from 'react'
 import Container from './Container'
-import { get, del } from 'aws-amplify/api'
-import { List } from 'antd'
-import checkUser from './checkUser'
+import getProducts from './components/getProducts'
+import ProductList from './components/ProductList'
 
 function Main() {
 
-    // Functions Here
+    // Functions Here (states)
+    const [state, setState] = useState({products: [], loading: true})
+  
+
+    // USE EFFECT!!!
+    useEffect(() => {
+
+        // roundabout component method to getProducts
+        const fetchData = async () => {
+            const products = await getProducts()
+            setState({ products, loading: false })
+        }
+
+        // effect calls
+        fetchData()
+    }, [])
+  
+
+ 
+
+  
 
   return (
     <Container>
@@ -16,7 +35,7 @@ function Main() {
       
       
       {/* Display Stuff here */}
-        
+      <ProductList state={state} setState={setState}/>
 
 
 
