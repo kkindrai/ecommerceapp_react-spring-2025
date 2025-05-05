@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, Outlet } from 'react-router-dom'
 import { Menu } from 'antd'
-import { HomeOutlined, UserOutlined, ProfileOutlined } from '@ant-design/icons'
+import { HomeOutlined, UserOutlined, ProfileOutlined, AuditOutlined } from '@ant-design/icons'
 import { Hub } from 'aws-amplify/utils'
 import checkUser from './checkUser'
 
@@ -31,6 +31,15 @@ const getNavLinks = (isAdmin) => {
                 </Link>
             )
         },
+        {
+            key: 'final',
+            label: (
+                <Link to="/final">
+                    <AuditOutlined />
+                    Final
+                </Link>
+            )
+        }
     ]
 
     // If the user is an admin, add the admin item!

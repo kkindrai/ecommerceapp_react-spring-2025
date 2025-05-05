@@ -15,6 +15,16 @@ function Main() {
     // return () => didCancel = true
   }, [])
   
+
+  /**
+   * getProducts Function
+   * 
+   * Creates a list of products from our api
+   * 
+   * Imports Required:
+   *  - import { get, del } from 'aws-amplify/api'
+   *  - import { useState, useEffect } from 'react'
+   */
   async function getProducts() {
     const request = await get({
         apiName: 'ecommerceapi',
@@ -30,6 +40,17 @@ function Main() {
       products: data.data.Items, loading: false
     })
   }
+
+  /**
+   * deleteItem Function
+   * @param {*} id 
+   * 
+   * Deletes the product with the parsed ID from the url path
+   * 
+   * Imports Required:
+   *  - import { get, del } from 'aws-amplify/api'
+   *  - 
+   */
   async function deleteItem(id) {
     try {
         const products = state.products.filter(p => p.id !== id)
@@ -45,13 +66,20 @@ function Main() {
       console.log('error: ', err)
     }
   }
+
+
+
   return (
     <Container>
+      
+      {/* The List */}
       <List
         itemLayout="horizontal"
         dataSource={state.products}
         loading={state.loading}
         renderItem={item => (
+          
+          // The List Items (Component?)
           <List.Item
             actions={user.isAuthorized ?
               [<p onClick={() => deleteItem(item.id)}
@@ -65,6 +93,9 @@ function Main() {
         )}
       />
     </Container>
+
+    
+
   )
 }
 
