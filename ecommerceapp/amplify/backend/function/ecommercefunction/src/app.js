@@ -210,6 +210,36 @@ app.put('/products', function(req, res) {
   res.json({success: 'put call succeed!', url: req.url, body: req.body})
 });
 
+// Put Method to modify upvotes:
+app.put('/products/:id', async function (req, res) {
+  const { event } = req.apiGateway
+  const { id } = req.params
+  const { upvotes } = req.body
+
+  try {
+
+    const params = {
+      TableName: ddb_table_name,
+      Key: { id },
+      UpdateExpression: 'set upvotes = :newUpvotes', // Says what its doing and where
+      ExpressionAttributeValues: { // Says what is being set
+        ':newUpvotes': upvotes
+      },
+      ReturnValues: 'ALL_NEW' 
+    }
+
+    const result = await docClient.update(params).promise()
+
+    res.json({ success: 'Upvotes updated', item: result.Attributes })
+
+  } catch (err) {
+    console.error(err)
+    res.json({ error: 'unable to update item' })
+  }
+})
+
+
+
 app.put('/products/*', function(req, res) {
   // Add your code here
   res.json({success: 'put call succeed!', url: req.url, body: req.body})
