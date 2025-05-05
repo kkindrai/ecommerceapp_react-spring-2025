@@ -10,6 +10,9 @@ const Product = ({product, setState}) => {
     // Code to act on
     const [user, updateUser] = useState({})
 
+    // Logslogslogs
+    console.log(product.upvotes)
+
     useEffect(() => {
         checkUser(updateUser)
     }, [])
@@ -31,6 +34,9 @@ const Product = ({product, setState}) => {
                     title={product.name}
                     description={product.price} />
             </List.Item>
+            <p>Test product uuid: {product.id}</p>
+            <p>Upvote Counter: {product.upvotes}</p>
+
 
         </>
         

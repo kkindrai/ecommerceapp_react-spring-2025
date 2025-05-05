@@ -158,6 +158,8 @@ app.get('/products/*', function(req, res) {
 
 app.post('/products', async function(req, res) {
   const { body } = req
+  console.log("KENDRA LOOK HERE (req)")
+  console.log(req)
   // console.log("GETS HERE 1: ", body)
 
   const { event } = req.apiGateway
@@ -167,7 +169,9 @@ app.post('/products', async function(req, res) {
     await canPerformAction(event, 'Admin')
     // console.log("GETS HERE 3: ")
 
-    const input = { ...body, id: uuid() }
+    const input = { ...body, upvotes: 0, id: uuid() }
+    console.log("KENDRA LOOK HERE (input)")
+    console.log(input)
     // console.log("GETS HERE 4: ", input)
     
     var params = {
