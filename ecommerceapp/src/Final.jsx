@@ -31,6 +31,7 @@ function Main() {
     <Container>
       <h1>React Final Project</h1>
       <p><code>By: Kendra Jade Kindrai</code></p>
+      <p>Check submission text file for login info!</p>
       <hr />
       
       

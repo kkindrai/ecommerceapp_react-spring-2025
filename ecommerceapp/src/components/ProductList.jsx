@@ -7,6 +7,7 @@ const ProductList = ({ state, setState }) => {
       <>
         {state ? (
           <List
+            className="product-list"
             itemLayout="horizontal"
             dataSource={state.products}
             loading={state.loading}

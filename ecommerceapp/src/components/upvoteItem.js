@@ -26,14 +26,16 @@ async function upvoteItem(product, setState) {
         })
 
         console.log('successfully modified item')
-
+        
         // Reload the Products Available
-        const updatedProducts = await getProducts()
-        setState({ products: updatedProducts, loading: false })
+        await new Promise(resolve => setTimeout(resolve, 300)) // wait a (.3)sec so it looks instant
+        setState({ products: await getProducts(), loading: false })
 
     } catch (err) {
         console.log('error: ', err)
     }
+
+    
 }
 
 export default upvoteItem

@@ -40,3 +40,30 @@
 .read-the-docs {
   color: #888;
 }
+
+
+/* 
+  CSS FOR THE FINAL PAGE
+*/
+/* Muy específico */
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;         /* Permite que pasen a la siguiente línea si no caben */
+  justify-content: center; /* Centra horizontalmente los productos */
+  gap: 1em;                 /* Espacio entre los productos */
+  padding: 1em;             /* Espacio interno del contenedor */
+}
+
+.product-list .product-item {
+  background-color: #eceaf3eb;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 250px;             /* Tamaño fijo para que se vean como tarjetas */
+  margin: 0.5em;            /* Espacio exterior adicional */
+}
+
+.product-list .product-item .btn {
+  color: white;
+}

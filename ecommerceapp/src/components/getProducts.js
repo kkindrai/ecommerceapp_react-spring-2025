@@ -20,7 +20,7 @@ async function getProducts() {
 
 
   
-  return data.data.Items // <-- este es el return real de la función
+  return data.data.Items // return those items
 }
 
 

@@ -33,6 +33,9 @@
       },
       "api": {
         "ecommerceapi": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }
